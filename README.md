@@ -7,11 +7,11 @@
 该车牌识别系统主要是由车牌定位、字符分割、字符识别这三个部分组成。在字符识别部分提出用基于改进的支持向量机的识别方法进行车牌字符的识别，利用训练好的支持向量机进行字符识别。
 
 ### 详细设计
-##### (1)main_car.py
+#### (1) main_car.py
 主要为前端界面的设计。
 
 
-##### (2)img_function.py
+#### (2) img_function.py
 ①　train_svm(self)
 初始化SVM实例，设置属性。这是opencv自带的。
 Svm.dat如果存在，不再训练，直接导入训练好的结果
@@ -33,7 +33,7 @@ map() 会根据提供的函数对指定序列做映射。
 ④　img_mser(self, filename)
 文字检测算法。该算法可以用来粗略地定位出图像中的文字区域位置。
 调用 MSER 算法；对一幅灰度图像取不同的阈值进行二值化处理；获取文本区域；将不规则检测框处理成矩形框。
-##### (3)img_math.py
+#### (3) img_math.py
 该文件包含读文件函数、取零值函数、矩阵校正函数、颜色判断函数。
 ①　img_read(filename)
 以uint8方式读取filename 放入imdecode中，cv2.IMREAD_COLOR读取彩色照片；
@@ -49,7 +49,7 @@ map() 会根据提供的函数对指定序列做映射。
 根据设定的阈值和图片直方图，找出波峰，用于分隔字符。
 ⑦　seperate_card(img, waves)
 根据找出的波峰，分割图片，从而得到逐个字符图片。
-##### (4)img_recognition.py
+#### (4) img_recognition.py
 ①　deskew(img)
 对训练图片（灰度图）进行抗扭曲处理，摆正。
 ②　preprocess_hog(digits)
